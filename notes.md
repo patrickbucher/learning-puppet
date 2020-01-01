@@ -87,3 +87,26 @@ Create an `.exrc` configuration for the new user `nerd`:
         ensure => 'present',
         content => "set number\nset wrapmargin=80",
     }
+
+# Puppet Configuration
+
+On Debian:
+
+    /etc/puppet/puppet.conf
+
+Sections:
+
+- `[main]`: common to master and agent
+- `[master]`: master configuration
+- `[agent]`: agent configuration
+
+Change agent identity to `brandnew`:
+
+    puppet config set certname brandnew
+
+Create new `development` environment:
+
+    mkdir -p /etc/puppet/environments/development
+    puppet config set environment development
+
+(what's the point?)
